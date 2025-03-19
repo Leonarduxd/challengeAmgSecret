@@ -41,3 +41,28 @@ function atualizarListaAmigos() {
         listaAmigos.appendChild(itemLista);
     }
 }
+
+/**
+ * Sorteia um amigo aleatoriamente da lista e exibe na página
+ */
+function sortearAmigo() {
+    // Verifica se há amigos na lista
+    if (amigos.length === 0) {
+        alert('Adicione pelo menos um amigo para realizar o sorteio!');
+        return;
+    }
+    
+    // Gera um índice aleatório
+    const indiceAleatorio = Math.floor(Math.random() * amigos.length);
+    
+    // Obtém o amigo sorteado
+    const amigoSorteado = amigos[indiceAleatorio];
+    
+    // Exibe o resultado na interface
+    const resultado = document.getElementById('resultado');
+    resultado.innerHTML = '';
+    
+    const itemResultado = document.createElement('li');
+    itemResultado.textContent = `Amigo sorteado: ${amigoSorteado}`;
+    resultado.appendChild(itemResultado);
+}
